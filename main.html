@@ -9,7 +9,28 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
+			if (arr.length <= 1) {
+    return -Infinity; // Return -Infinity for empty or single-element arrays
+  }
+
+  let firstHighest = -Infinity;
+  let secondHighest = -Infinity;
+
+  for (const num of arr) {
+    if (num > firstHighest) {
+      secondHighest = firstHighest;
+      firstHighest = num;
+    } else if (num < firstHighest && num > secondHighest) {
+      secondHighest = num;
+    }
+  }
+
+  if (secondHighest === -Infinity) {
+    return -Infinity; // All elements are the same
+  }
+
+  return secondHighest;
+			
 			
 		}
 
